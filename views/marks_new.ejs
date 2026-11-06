@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Enter Marks</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f4f6f9;margin:0;}
+.nav{background:#2563eb;color:#fff;padding:12px 20px;}
+.nav a{color:#fff;text-decoration:none;margin-left:15px;}
+.container{max-width:600px;margin:20px auto;padding:0 20px;}
+.card{background:#fff;padding:20px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.1);}
+input,select{width:100%;padding:10px;margin:8px 0;border:1px solid #ccc;border-radius:4px;box-sizing:border-box;}
+button{padding:10px 20px;background:#2563eb;color:#fff;border:none;border-radius:4px;cursor:pointer;}
+</style></head>
+<body>
+<div class="nav"><span>Enter Internal Marks</span><a href="/dashboard">Back</a></div>
+<div class="container"><div class="card">
+<form method="POST" action="/marks">
+  <select name="student_id" required>
+    <option value="">Select Student</option>
+    <% students.forEach(s=>{ %><option value="<%= s.id %>"><%= s.roll_no %> - <%= s.name %></option><% }) %>
+  </select>
+  <input name="subject" placeholder="Subject" required>
+  <input name="marks" type="number" placeholder="Marks Obtained" required>
+  <input name="max_marks" type="number" placeholder="Max Marks (default 100)" value="100">
+  <input name="semester" type="number" placeholder="Semester" required>
+  <button type="submit">Save Marks</button>
+</form>
+</div></div>
+</body></html>

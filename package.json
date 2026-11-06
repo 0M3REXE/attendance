@@ -1,0 +1,16 @@
+{
+  "name": "student-attendance-performance",
+  "version": "1.0.0",
+  "description": "Student Attendance and Academic Performance Management System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.0.0",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0"
+  }
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Reports</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f4f6f9;margin:0;}
+.nav{background:#2563eb;color:#fff;padding:12px 20px;}
+.nav a{color:#fff;text-decoration:none;margin-left:15px;}
+.container{max-width:1000px;margin:20px auto;padding:0 20px;}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.1);}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #eee;}
+th{background:#f1f5f9;}
+</style></head>
+<body>
+<div class="nav"><span>Student Performance Reports</span><a href="/dashboard">Back</a></div>
+<div class="container">
+<table>
+<tr><th>Roll No</th><th>Name</th><th>Dept</th><th>Sem</th><th>Classes</th><th>Present</th><th>Attendance %</th><th>Avg Marks</th></tr>
+<% data.forEach(d=>{ %>
+<tr><td><%= d.roll_no %></td><td><%= d.name %></td><td><%= d.department %></td><td><%= d.semester %></td><td><%= d.total_classes %></td><td><%= d.present_classes %></td><td><%= d.attendance_pct %>%</td><td><%= d.avg_marks %></td></tr>
+<% }) %>
+</table>
+</div>
+</body></html>

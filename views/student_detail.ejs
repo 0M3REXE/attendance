@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Student Detail</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f4f6f9;margin:0;}
+.nav{background:#2563eb;color:#fff;padding:12px 20px;}
+.nav a{color:#fff;text-decoration:none;margin-left:15px;}
+.container{max-width:900px;margin:20px auto;padding:0 20px;}
+.card{background:#fff;padding:20px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.1);margin-bottom:15px;}
+table{width:100%;border-collapse:collapse;}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid #eee;}
+th{background:#f1f5f9;}
+.stat{display:inline-block;margin-right:30px;font-size:18px;}
+.stat b{color:#2563eb;}
+</style></head>
+<body>
+<div class="nav"><span><%= student.name %></span><a href="/dashboard">Back</a></div>
+<div class="container">
+<div class="card">
+<h2><%= student.name %> (<%= student.roll_no %>)</h2>
+<p><%= student.department %> - Semester <%= student.semester %></p>
+<p>Email: <%= student.email || '-' %> | Phone: <%= student.phone || '-' %></p>
+<div class="stat">Attendance: <b><%= pct %>%</b></div>
+<div class="stat">Avg Marks: <b><%= avg %></b></div>
+</div>
+<div class="card">
+<h3>Attendance Records</h3>
+<% if (attendance.length===0) { %><p>No records.</p><% } else { %>
+<table><tr><th>Date</th><th>Status</th></tr>
+<% attendance.forEach(a=>{ %><tr><td><%= a.date %></td><td><%= a.status %></td></tr><% }) %>
+</table><% } %>
+</div>
+<div class="card">
+<h3>Internal Marks</h3>
+<% if (marks.length===0) { %><p>No marks.</p><% } else { %>
+<table><tr><th>Subject</th><th>Marks</th><th>Max</th><th>Semester</th></tr>
+<% marks.forEach(m=>{ %><tr><td><%= m.subject %></td><td><%= m.marks %></td><td><%= m.max_marks %></td><td><%= m.semester %></td></tr><% }) %>
+</table><% } %>
+</div>
+</div>
+</body></html>

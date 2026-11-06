@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Dashboard</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f4f6f9;margin:0;}
+.nav{background:#2563eb;color:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;}
+.nav a{color:#fff;text-decoration:none;margin-left:15px;}
+.container{max-width:1000px;margin:20px auto;padding:0 20px;}
+h2{margin-top:0;}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.1);}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #eee;}
+th{background:#f1f5f9;}
+.btn{display:inline-block;padding:6px 12px;background:#2563eb;color:#fff;text-decoration:none;border-radius:4px;font-size:13px;margin:2px;}
+.btn.green{background:#16a34a;}
+.actions{margin-bottom:15px;}
+</style></head>
+<body>
+<div class="nav">
+  <span>Attendance System - <%= faculty.name %></span>
+  <div>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/students/new">Add Student</a>
+    <a href="/attendance">Mark Attendance</a>
+    <a href="/attendance/percentage">Attendance %</a>
+    <a href="/marks/new">Enter Marks</a>
+    <a href="/reports">Reports</a>
+    <a href="/logout">Logout</a>
+  </div>
+</div>
+<div class="container">
+<h2>Students</h2>
+<div class="actions"><a class="btn green" href="/students/new">+ Add Student</a></div>
+<% if (students.length===0) { %><p>No students yet.</p><% } else { %>
+<table>
+<tr><th>Roll No</th><th>Name</th><th>Department</th><th>Semester</th><th>Action</th></tr>
+<% students.forEach(s=>{ %>
+<tr>
+<td><%= s.roll_no %></td><td><%= s.name %></td><td><%= s.department %></td><td><%= s.semester %></td>
+<td><a class="btn" href="/students/<%= s.id %>">View</a></td>
+</tr>
+<% }) %>
+</table>
+<% } %>
+</div>
+</body></html>
